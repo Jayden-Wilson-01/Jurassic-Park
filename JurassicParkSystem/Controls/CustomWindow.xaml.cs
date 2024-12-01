@@ -29,12 +29,9 @@ namespace JurassicParkSystem.Controls
         }
 
         /// <summary>
-        /// Allow or prevent window from being minimised
+        /// Check if window is maximised
         /// </summary>
-        public bool IsMinimisable
-        {
-            set { MinimiseButton.IsEnabled = value; }
-        }
+        public bool IsMaximized { get; private set; }
 
         /// <summary>
         /// Allow or prevent window from being maximised
@@ -84,6 +81,7 @@ namespace JurassicParkSystem.Controls
             {
                 this.Width = 500;
                 this.Height = 400;
+                IsMaximized = false;
             }
             //Maximise window if already collapsed
             else
@@ -93,6 +91,8 @@ namespace JurassicParkSystem.Controls
                 this.Height = canvas.ActualHeight;
                 Canvas.SetLeft(this, 0);
                 Canvas.SetTop(this, 0);
+
+                IsMaximized = true;
 
                 foreach (UIElement customWindow in canvas.Children)
                 {

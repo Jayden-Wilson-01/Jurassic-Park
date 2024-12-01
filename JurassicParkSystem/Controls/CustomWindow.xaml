@@ -51,6 +51,7 @@
                     
                     <!--#region Buttons-->
                     <Button Style="{DynamicResource DefaultButtonStyle}" 
+                            Visibility="Collapsed"
                             x:Name="MinimiseButton"
                             x:FieldModifier="private"
                             Click="MinimiseButton_Click"
