@@ -75,7 +75,7 @@
                     
                     <Button Style="{DynamicResource DefaultButtonStyle}" 
                             x:Name="CloseButton"
-                            x:FieldModifier="private"
+                            x:FieldModifier="public"
                             Click="CloseButton_Click"
                             Grid.Column="3" 
                             Width="25" 
@@ -94,6 +94,10 @@
                 <Grid 
                     x:Name="ContentArea"
                     x:FieldModifier="private">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
                 </Grid>
             </Border>
             <!--#endregion-->

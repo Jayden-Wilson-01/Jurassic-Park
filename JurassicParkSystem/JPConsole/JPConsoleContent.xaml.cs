@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JurassicParkSystem.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,18 @@ namespace JurassicParkSystem.JPConsole
         public JPConsoleContent()
         {
             InitializeComponent();
+
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            JPConsoleClass.StopTasks();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             JPConsoleClass.Welcome(ConsoleTextBox);
+            JPConsoleClass.CloseButton(this, CloseButton_Click);
         }
 
         private void ConsoleTextBox_PreviewKeyDown(object sender, KeyEventArgs e)

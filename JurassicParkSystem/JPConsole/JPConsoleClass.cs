@@ -1,20 +1,18 @@
 ﻿using JurassicParkSystem.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace JurassicParkSystem.JPConsole
 {
     public class JPConsoleClass
     {
+        //TODO: clean code 
         private bool hacked = false;
         private int failedAttempts = 0;
+        private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         /// <summary>
         /// Load all the required controls and content
@@ -47,6 +45,14 @@ namespace JurassicParkSystem.JPConsole
         /// <param name="textBox">Textbox to show welcome message</param>
         public void Welcome(TextBox textBox)
         {
+            //Resets all text
+            textBox.Clear();
+
+            //Reset all values
+            failedAttempts = 0;
+            cancellationTokenSource = new CancellationTokenSource();
+            hacked = true; // would be false to begin with
+
             //Welcome message
             textBox.AppendText("Jurassic Park, System Security Interface\nVersion 1.0.0, Alpha E\nReady...\n>");
         }
@@ -82,8 +88,6 @@ namespace JurassicParkSystem.JPConsole
         /// <param name="textBox">Textbox to add outputs to</param>
         private async void Commands(TextBox textBox)
         {
-            hacked = true;
-
             //Get all text after > in this case the command
             int lastIndex = textBox.Text.LastIndexOf('>');
             string command = textBox.Text.Substring(lastIndex + 1).Trim(); //Remove extra spaces
@@ -96,7 +100,7 @@ namespace JurassicParkSystem.JPConsole
             }
             else
             {
-                textBox.AppendText("Command does not exist.");
+                textBox.AppendText("\nCommand does not exist.");
             }
 
             //If user has 3 failed attempts show Nedry's phrase
@@ -107,8 +111,12 @@ namespace JurassicParkSystem.JPConsole
                 //Display Nedry's phrase 1000 times
                 for (int i = 0; i < 2000; i++)
                 {
-                    textBox.AppendText("YOU DIDN'T SAY THE MAGIC WORD!\n");
-                    await Task.Delay(10);
+                    //If the tasks is not cancelled
+                    if (!cancellationTokenSource.Token.IsCancellationRequested)
+                    {
+                        textBox.AppendText("YOU DIDN'T SAY THE MAGIC WORD!\n");
+                        await Task.Delay(1000);
+                    }
                 }
             }
 
@@ -155,6 +163,34 @@ namespace JurassicParkSystem.JPConsole
             }
 
             return command;
+        }
+
+        /// <summary>
+        /// Adds ability to access the close button click event of custom window
+        /// </summary>
+        /// <param name="currentControl">The current control (Console content)</param>
+        /// <param name="routedEventHandler">The button click event</param>
+        public void CloseButton(UserControl currentControl, RoutedEventHandler routedEventHandler)
+        {
+            DependencyObject parent = currentControl;
+            while (parent != null && !(parent is CustomWindow))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            CustomWindow customWindow = parent as CustomWindow;
+            if (customWindow != null)
+            {
+                customWindow.CloseButton.Click += routedEventHandler;
+            }
+        }
+
+        /// <summary>
+        /// Stops all async and await tasks in the class
+        /// </summary>
+        public void StopTasks()
+        {
+            cancellationTokenSource.Cancel();
         }
     }
 }

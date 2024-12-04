@@ -63,6 +63,7 @@ namespace JurassicParkSystem.Controls
 
             if (!canvas.Children.Contains(CustomWindow))
             {
+                
                 //Add custom window to canvas
                 canvas.Children.Add(CustomWindow);
             }
