@@ -10,6 +10,7 @@
 
     <TextBox Background="Blue" 
              Foreground="White"
+             VerticalScrollBarVisibility="Visible"
              x:Name="ConsoleTextBox"
              x:FieldModifier="public"
              PreviewKeyDown="ConsoleTextBox_PreviewKeyDown">

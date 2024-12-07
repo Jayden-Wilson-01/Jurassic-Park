@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 namespace JurassicParkSystem.JPConsole
 {
+
     /// <summary>
     /// Interaction logic for ConsoleContent.xaml
     /// </summary>
@@ -36,7 +37,7 @@ namespace JurassicParkSystem.JPConsole
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            JPConsoleClass.Welcome(ConsoleTextBox);
+            JPConsoleClass.DefaultValues(ConsoleTextBox);
             JPConsoleClass.CloseButton(this, CloseButton_Click);
         }
 
