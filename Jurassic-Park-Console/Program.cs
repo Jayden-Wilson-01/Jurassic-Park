@@ -1,10 +1,15 @@
-﻿namespace Jurassic_Park_Console
+﻿using Jurassic_Park_Console;
+
+namespace JurassicParkConsole
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Theme.SetTheme(ConsoleColor.Green);
+
+            Console.WriteLine("Test");
+            Console.WriteLine("Another Test");
         }
     }
 }
