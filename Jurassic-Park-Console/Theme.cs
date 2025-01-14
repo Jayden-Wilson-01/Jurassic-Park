@@ -20,24 +20,31 @@ namespace Jurassic_Park_Console
         /// <param name="foreground"></param>
         public static void SetTheme(ConsoleColor foreground = ConsoleColor.White, ConsoleColor background = ConsoleColor.Black)
         {
-            if (isThemeSet)
+            try
             {
-                //Throw error
-                throw new InvalidOperationException("Can only set console theme once.");
+                //Check if theme is already true 
+                if (isThemeSet == true)
+                {
+                    //Throw error
+                    throw new InvalidOperationException("Can only set console theme once.");
+                }
+                else
+                {
+                    //Clear console
+                    Console.Clear();
+
+                    //Set console colours
+                    Console.ForegroundColor = foreground;
+                    Console.BackgroundColor = background;
+
+                    //Set theme status
+                    isThemeSet = true;
+                }
             }
-            else
-            {
-                //Clear console
-                Console.Clear();
-
-                //Set console colours
-                Console.ForegroundColor = foreground;
-                Console.BackgroundColor = background;  
-
-                //Set theme status
-                isThemeSet = true;
+            catch (Exception)
+            { 
+                throw;
             }
-
         }
     }
 }

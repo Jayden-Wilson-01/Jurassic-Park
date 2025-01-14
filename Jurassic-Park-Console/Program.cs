@@ -6,10 +6,19 @@ namespace JurassicParkConsole
     {
         static void Main(string[] args)
         {
+            //Initial theme
             Theme.SetTheme(ConsoleColor.Green);
 
-            Console.WriteLine("Test");
-            Console.WriteLine("Another Test");
+            //Initial welcome text
+            Console.WriteLine("Jurassic Park, System Security Interface\nVersion 4.0.5, Alpha E\nReady...");
+
+            //Hacked status
+            bool hacked = Hacked.GetStatus();
+
+            while (true)
+            {
+                Commands.GetInput(hacked);
+            }
         }
     }
 }
