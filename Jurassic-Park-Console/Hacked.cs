@@ -1,44 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Timers;
 
 namespace Jurassic_Park_Console
 {
     public class Hacked
     {
+        //Failed attempts counter
         private static int failedAttempts = 0;
+
+        //Create new stopwatch
+        private static System.Timers.Timer hackTimer = new System.Timers.Timer();
+
+        /// <summary>
+        /// Returns if system is hacked
+        /// </summary>
+        public static bool isHacked { get; private set; }
 
         /// <summary>
         /// Get status of if system is hacked
         /// </summary>
         /// <returns>The bool value of the system status</returns>
-        public static bool GetStatus()
+        public static void GenerateHackTimer()
         {
             try
             {
                 //Generate either 0 or 1 
                 Random random = new Random();
-                int status = random.Next(0, 2);
+                int interval = random.Next(60000, 300000);
 
-                if (status == 1)
-                {
-                    return true;
-                }
-                else if (status == 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    return false;
-                }
+                hackTimer.Interval = interval;
+                hackTimer.Elapsed += HackTimer_Elapsed;
+                hackTimer.Enabled = true;
+               
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Execute the hack once the random time is elapsed 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void HackTimer_Elapsed(object? sender, ElapsedEventArgs e)
+        {
+             isHacked = true;
+             hackTimer.Enabled = false;
         }
 
         /// <summary>
@@ -48,11 +57,13 @@ namespace Jurassic_Park_Console
         {
             try
             {
+                failedAttempts++;
+
                 //Display error
                 Console.WriteLine("Access. Permission Denied");
 
-                //If failed attemps is 2 then show error
-                if (failedAttempts == 2)
+                //If failed attemps is 3 then show error
+                if (failedAttempts == 3)
                 {
                     Console.WriteLine("Permission Denied....And...");
 
@@ -68,5 +79,7 @@ namespace Jurassic_Park_Console
                 throw;
             }
         }
+
+        
     }
 }

@@ -22,14 +22,14 @@ namespace Jurassic_Park_Console
         /// Allow user to input command
         /// </summary>
         /// <param name="hacked"></param>
-        public static void GetInput(bool hacked)
+        public static void GetInput()
         {
             try
             {
                 Console.Write("> ");
                 string command = Console.ReadLine().ToLower();
 
-                if (hacked == true)
+                if (Hacked.isHacked)
                 {
                     //Display error
                     Hacked.FailedAttempt();

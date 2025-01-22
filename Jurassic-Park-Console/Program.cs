@@ -13,11 +13,11 @@ namespace JurassicParkConsole
             Console.WriteLine("Jurassic Park, System Security Interface\nVersion 4.0.5, Alpha E\nReady...");
 
             //Hacked status
-            bool hacked = Hacked.GetStatus();
+            Hacked.GenerateHackTimer();
 
             while (true)
             {
-                Commands.GetInput(hacked);
+                Commands.GetInput();
             }
         }
     }

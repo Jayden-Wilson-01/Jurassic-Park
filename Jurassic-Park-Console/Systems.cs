@@ -8,12 +8,12 @@ namespace Jurassic_Park_Console
 {
     public static class Systems
     {
-        public static bool Power { get; set; } = true;
-        public static bool Cameras { get; set; } = true;
-        public static bool MotionSensors { get; set; } = true;
-        public static bool PermimeterGatesLocked { get; set; } = true;
-        public static bool EnclosureGatesLocked { get; set; } = true;
-        public static bool PermimeterFence { get; set; } = true;
-        public static bool EnclosureFences  { get; set; } = true;
+        public static bool Power = true;
+        public static bool Cameras = true;
+        public static bool MotionSensors = true;
+        public static bool PermimeterGatesLocked = true;
+        public static bool EnclosureGatesLocked = true;
+        public static bool PermimeterFence = true;
+        public static bool EnclosureFences = true;
     }
 }
