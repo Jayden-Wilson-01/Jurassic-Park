@@ -49,9 +49,9 @@ namespace Jurassic_Park_Console
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Console.WriteLine(ex);
             }
         }
     }

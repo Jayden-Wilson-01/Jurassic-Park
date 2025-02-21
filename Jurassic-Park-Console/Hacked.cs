@@ -33,9 +33,9 @@ namespace Jurassic_Park_Console
                 hackTimer.Enabled = true;
                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Console.WriteLine(ex);
             }
         }
 
@@ -46,8 +46,15 @@ namespace Jurassic_Park_Console
         /// <param name="e"></param>
         private static void HackTimer_Elapsed(object? sender, ElapsedEventArgs e)
         {
-             isHacked = true;
-             hackTimer.Enabled = false;
+            try
+            {
+                isHacked = true;
+                hackTimer.Enabled = false;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         /// <summary>
@@ -74,9 +81,9 @@ namespace Jurassic_Park_Console
                     }
                 }
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                throw;
+                Console.WriteLine(ex);
             }
         }
 

@@ -41,9 +41,9 @@ namespace Jurassic_Park_Console
                     isThemeSet = true;
                 }
             }
-            catch (Exception)
-            { 
-                throw;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
     }
