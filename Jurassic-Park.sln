@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jurassic-Park-Console", "Jurassic-Park-Console\Jurassic-Park-Console.csproj", "{8CE8354B-5776-D9DC-982A-29C58869A264}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jurassic-Park-Desktop", "Jurassic-Park-Desktop\Jurassic-Park-Desktop.csproj", "{C0815C19-138F-83DF-00E5-621F6B78B220}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CE8354B-5776-D9DC-982A-29C58869A264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE8354B-5776-D9DC-982A-29C58869A264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE8354B-5776-D9DC-982A-29C58869A264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE8354B-5776-D9DC-982A-29C58869A264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0815C19-138F-83DF-00E5-621F6B78B220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0815C19-138F-83DF-00E5-621F6B78B220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0815C19-138F-83DF-00E5-621F6B78B220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0815C19-138F-83DF-00E5-621F6B78B220}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E27E8581-A6C2-482E-9101-F443507DC332}
+	EndGlobalSection
+EndGlobal
