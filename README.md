@@ -1,5 +1,5 @@
 # Jurassic Park
-This project is a continuously developed console app that takes inspiration from the *Jurassic Park* film and novel.  
+This project is a continuously developed project that takes inspiration from the *Jurassic Park* film and novel.  
 The console app works like the one seen in the movie where Ray Arnold tries to turn the security systems back on.  
 Currently, you can enter commands into the console that may or may not show a result—based on whether the console is in "hacked" mode, which is enabled at a random interval between 1 and 5 minutes.
 
